@@ -42,9 +42,5 @@ public class Song {
         }
         return false;
     }
-
-    @Override
-    public int hashCode() {
-        return (title.toLowerCase() + artist.toLowerCase()).hashCode();
-    }
+    
 }
