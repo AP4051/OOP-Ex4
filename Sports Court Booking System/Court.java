@@ -9,8 +9,8 @@ public class Court {
 
     // TODO: Refactor to throw CourtNotAvailableException instead of returning false
     public void bookCourt() throws CourtNotAvailableException {
-        if (isAvailable) {
-            throw new CourtNotAvailableException(sportType + "Court is occupued!");
+        if (!isAvailable) {
+            throw new CourtNotAvailableException(sportType + "Court is occupied!");
         }
         isAvailable =  false;
     }
