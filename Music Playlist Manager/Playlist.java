@@ -69,8 +69,8 @@ public class Playlist {
             System.out.println("empty playlist!");
         }
         System.out.println("Playlist: " + name);
-        for(int i= 1 ; i<= songs.size();i++){
-            System.out.println(i + "-"+songs.get(i));
+        for (int i = 0; i < songs.size(); i++) {
+            System.out.println((i + 1) + ". " + songs.get(i));
         }
         int total = getTotalDuration();
         System.out.printf("Total duration: %02d:%02d%n", total / 60, total % 60);
