@@ -24,7 +24,9 @@ public class Playlist {
     }
     public boolean removeSongByTitle(String title) {
         for (int i = 0; i < songs.size(); i++) {
-            if (songs.get(i).getTitle().equalsIgnoreCase(title)) { songs.remove(i); return true; }
+            if (songs.get(i).getTitle().equalsIgnoreCase(title)) {
+                songs.remove(i); return true;
+            }
         }
         return false;
     }
