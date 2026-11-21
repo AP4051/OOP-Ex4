@@ -1,0 +1,2 @@
+public class StorageBox<T> {
+}
