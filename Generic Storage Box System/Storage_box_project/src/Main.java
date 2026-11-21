@@ -25,6 +25,7 @@ public class Main {
         System.out.println(bookAisle.getKey() + " / " + gadgetAisle.getKey());
         printBoxSummary(bookBox);
         printBoxSummary(gadgetBox);
+
     }
 
 }
