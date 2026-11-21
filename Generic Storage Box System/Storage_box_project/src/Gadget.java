@@ -1,9 +1,9 @@
 public class Gadget {
 
     private String name;
-    private int price;
+    private double price;
 
-    public Gadget(String name, int price) {
+    public Gadget(String name, double price) {
         this.name = name;
         this.price = price;
     }
@@ -11,11 +11,11 @@ public class Gadget {
     public String getName() {
         return name;
     }
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
     @Override
     public String toString() {
-        return "Gadget{name: '" + name + "', price: " + price + "}";
+        return "Gadget{name: '" + name + "', price: $" + String.format("%.2f", price) + "}";
     }
 }
