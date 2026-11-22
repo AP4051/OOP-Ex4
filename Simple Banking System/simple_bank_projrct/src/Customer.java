@@ -8,19 +8,19 @@ public class Customer {
     }
 
     public void depositMoney(double amount) throws InvalidAmountException {
-        bankAccount.deposit(amount);
+        this.bankAccount.deposit(amount);
     }
     public void withdrawMoney(double amount) throws InvalidAmountException, InsufficientBalanceException {
-        bankAccount.withdraw(amount);
+        this.bankAccount.withdraw(amount);
     }
     public void checkBalance() {
-        System.out.printf("%s's balance: $%.2f%n", name, bankAccount.getBalance());
+        System.out.printf("%s's balance: $%.2f%n", this.name, this.bankAccount.getBalance());
     }
     public String getName() {
-        return name;
+        return this.name;
     }
     public BankAccount getAccount() {
-        return bankAccount;
+        return this.bankAccount;
     }
 
 }

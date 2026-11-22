@@ -8,27 +8,27 @@ public class BankAccount {
     }
 
     public void deposit(double amount) throws InvalidAmountException{
-        if (amount < 0) {
+        if (amount <= 0) {
             throw new InvalidAmountException("Invalid deposit amount");
         }
-        balance += amount;
+        this.balance += amount;
         System.out.printf("Deposited %.2f%n", amount);
     }
     public void withdraw(double amount) throws InvalidAmountException, InsufficientBalanceException {
         if (amount < 0) {
             throw new InvalidAmountException("Invalid withdrawal amount");
         }
-        else if (amount > balance){
+        else if (amount > this.balance){
             throw new InsufficientBalanceException("The balance is insufficient");
         }
-        balance -= amount;
+        this.balance -= amount;
         System.out.printf("Withdrew %.2f%n", amount);
     }
 
     public double getBalance(){
-        return balance;
+        return this.balance;
     }
     public String getAccountNumber(){
-        return accountNumber;
+        return this.accountNumber;
     }
 }

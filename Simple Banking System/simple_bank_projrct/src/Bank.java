@@ -6,7 +6,7 @@ public class Bank {
     private List<Customer> customers;
 
     public Bank(){
-        customers = new ArrayList<>();
+        this.customers = new ArrayList<>();
     }
 
     public void addCustomer(Customer customer) throws DuplicateAccountException {
@@ -22,7 +22,7 @@ public class Bank {
     }
 
     public Customer searchCustomerByAccount(String accountNumber){
-        for (Customer customer : customers) {
+        for (Customer customer : this.customers) {
             if (customer.getAccount().getAccountNumber().equals(accountNumber)){
                 return customer;
             }
@@ -32,7 +32,7 @@ public class Bank {
 
     public Customer findCustomerByAccount(String accountNumber) throws AccountNotFoundException{
         Customer foundCustomer = searchCustomerByAccount(accountNumber);
-        if (foundCustomer != null){
+        if (foundCustomer == null){
             throw new AccountNotFoundException("Account " + accountNumber + " was not found");
         }
         return foundCustomer;
