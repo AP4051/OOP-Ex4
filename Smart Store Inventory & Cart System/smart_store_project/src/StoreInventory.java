@@ -14,7 +14,7 @@ public class StoreInventory {
         if (product == null){
             throw new IllegalArgumentException("Product cannot be null");
         }
-        Product previous = catalog.putIfAbsent(product.getName(), product);
+        Product previous = catalog.putIfAbsent(product.getProductId(), product);
         if (previous != null){
             System.out.println("Warning: Product already exists: " + product.getProductId());
         }
@@ -43,7 +43,7 @@ public class StoreInventory {
     public List<Product> getLowStockProducts(int threshold){
         List<Product> low = new ArrayList<>();
         for (Product product : catalog.values()){
-            if (product.getPrice() < threshold){
+            if (product.getStockQuantity() < threshold){
                 low.add(product);
             }
         }
