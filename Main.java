@@ -1,9 +1,13 @@
 public class Main {
+ public static <T> void printBoxSummary(StorageBox<T> box){System.out.println("Count: "+box.getItemCount());box.displayContents();}
  public static void main(String[] args){
-  StoreInventory store=new StoreInventory();
-  store.addProduct(new Product("P1","Mouse",10,5));store.addProduct(new Product("P2","Keyboard",20,3));store.addProduct(new Product("P3","Pen",2,10));store.addProduct(new Product("P4","Book",8,2));store.addProduct(new Product("P5","Bag",30,1));
-  store.restockProduct("P5",2);System.out.println("Low stock: "+store.getLowStockProducts(3));System.out.println("Inventory value: "+store.calculateTotalInventoryValue());
-  ShoppingCart cart=new ShoppingCart();cart.addItem(store,"P1",2);cart.addItem(store,"P1",1);cart.addItem(store,"P2",2);cart.addItem(store,"P5",100);
-  System.out.println("Cart total: "+cart.calculateTotal(store));cart.checkout(store);store.printCatalog();
+  StorageBox<Book> books=new StorageBox<>("Books",3);
+  books.addItem(new Book("Java","Ali"));books.addItem(new Book("Math","Sara"));books.addItem(new Book("OOP","Reza"));books.addItem(new Book("Extra","X"));
+  StorageBox<Gadget> gadgets=new StorageBox<>("Gadgets",2);
+  gadgets.addItem(new Gadget("Mouse",20));gadgets.addItem(new Gadget("Phone",200));gadgets.addItem(new Gadget("Extra",1));
+  LabelPair<String,StorageBox<Book>> b=new LabelPair<>("Aisle-1",books);
+  LabelPair<String,StorageBox<Gadget>> g=new LabelPair<>("Aisle-2",gadgets);
+  System.out.println(b.getKey()+" "+g.getKey());printBoxSummary(books);printBoxSummary(gadgets);
+  // books.addItem(new Gadget("Wrong",5)); // Compile-time error: wrong type
  }
 }
