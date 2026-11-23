@@ -63,7 +63,7 @@ public class ShoppingCart {
                 continue;
             }
 
-            p.decreaseStock(qty);                
+            p.decreaseStock(qty);
             double lineTotal = p.getPrice() * qty;
             total += lineTotal;
 
