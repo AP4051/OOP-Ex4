@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ArrayList;
 
 public class StoreInventory {
@@ -24,7 +25,7 @@ public class StoreInventory {
     public Product getProduct(String productId){
         return catalog.get(productId);
     }
-    //restockProduct(String productId, int quantity): Finds the product and increases its stock.
+
     public void restockProduct(String productId , int quantity){
         Product p = catalog.get(productId);
         if(p ==null){
@@ -33,19 +34,19 @@ public class StoreInventory {
         p.increaseStock(quantity);
     }
 
-    public List<Product> getLowStockProducts(int threshold){
-        List<Product> kala = new ArrayList<>();
-        for(Product p :catalog.values()) {
+    public List<Product> getLowStockProducts(int threshold) {
+        List<Product> result = new ArrayList<>();
+        for (Product p : catalog.values()) {
             if (p.getStockQuantity() <= threshold) {
-                kala.add(p);
+                result.add(p);
             }
         }
-        return kala;
+        return result;
     }
-
     public double calculateTotalInventoryValue() {
         double total = 0;
-        for (Product p : catalog.Values()) {
+        for (Map.Entry<String, Product> entry : catalog.entrySet()) {
+            Product p = entry.getValue();
             total += p.getPrice() * p.getStockQuantity();
         }
         return total;
@@ -59,4 +60,5 @@ public class StoreInventory {
             System.out.println(p);
         }
     }
+
 }
