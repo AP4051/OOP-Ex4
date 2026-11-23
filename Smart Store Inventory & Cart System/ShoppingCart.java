@@ -47,6 +47,35 @@ public class ShoppingCart {
             System.out.println("Warning: " + productId + " is not in the cart.");
         }
     }
+    public void checkout(StoreInventory inventory) {
+        if (item.isEmpty()) {
+            System.out.println("Cart is empty.");
+            return;
+        }
+
+        double total = 0;
+
+        for (Map.Entry<String, Integer> entry : item.entrySet()) {
+            Product p = inventory.getProduct(entry.getKey());
+            int qty = entry.getValue();
+
+            if (p == null) {
+                continue;
+            }
+
+            p.decreaseStock(qty);                
+            double lineTotal = p.getPrice() * qty;
+            total += lineTotal;
+
+
+            System.out.printf("%-18s x%d  $%.2f%n", p.getName(), qty, lineTotal);
+        }
+
+
+        System.out.printf("TOTAL: $%.2f%n", total);
+
+        item.clear();
+    }
 
 }
 
